@@ -9,11 +9,12 @@ import Collections from './pages/Collections'
 import Login from './pages/Login'
 import Product from './pages/Product'
 import PlaceOrder from './pages/PlaceOrder'
+import Footer from './components/Footer'
 function App() {
  
   return (
     
-    <div className='px-[2vw] sm:px-[5vw] md:px-[10vw] lg:px-[15vw]'>
+    <div className='container mx-auto'>
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
@@ -26,6 +27,7 @@ function App() {
           <Route path="/product/:productId" element={<Product/>}/> 
           <Route path="/placeorder" element={<PlaceOrder/>}/>
         </Routes>
+        <Footer/>
     </div>
   )
 }

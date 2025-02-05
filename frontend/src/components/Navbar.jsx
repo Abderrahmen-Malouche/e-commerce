@@ -6,7 +6,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <header className="flex items-center justify-between py-10">
+    <header className="flex items-center justify-between py-6">
       <NavLink to="/">
         <img src={assets.logo} width={150} alt="" />
       </NavLink>
@@ -17,7 +17,7 @@ const Navbar = () => {
               {({ isActive }) => (
                 <div className="items-center flex flex-col gap-1">
                   <p
-                    className={` text-xl font-medium ${
+                    className={` text-lg font-normal ${
                       isActive ? "text-[#c586a5]" : "text-gray-800"
                     }`}
                   >
@@ -26,7 +26,7 @@ const Navbar = () => {
                   <hr
                     className={`${
                       isActive ? "block border-[#c586a5]" : "hidden bg-gray-800"
-                    } w-2/4 border-2`}
+                    } w-2/4 border-1`}
                   ></hr>
                 </div>
               )}
