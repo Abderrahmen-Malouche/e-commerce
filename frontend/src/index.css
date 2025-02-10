@@ -1,15 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 *{
-    font-family: Proxima Nova, sans-serif;
+    font-family:outfit;
 }
 .prata-regular {
     font-family: "Prata", serif;
     font-weight: 400;
     font-style: normal;
   }
+  ::-webkit-scrollbar{
+    width:0px;
+  }
   
+  
+.outfit-font {
+  font-family: "Outfit", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}

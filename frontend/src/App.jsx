@@ -10,12 +10,14 @@ import Login from './pages/Login'
 import Product from './pages/Product'
 import PlaceOrder from './pages/PlaceOrder'
 import Footer from './components/Footer'
+import SearchBar from './components/SearchBar'
 function App() {
  
   return (
     
     <div className='container mx-auto'>
         <Navbar/>
+        <SearchBar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>

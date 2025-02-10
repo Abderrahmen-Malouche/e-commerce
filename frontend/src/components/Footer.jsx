@@ -2,7 +2,7 @@ import React from 'react'
 import {assets} from "../assets/assets"
 const Footer = () => {
   return (
-    <>
+    <footer>
     <div className='flex flex-col mb-6  justify-center gap-14 sm:grid-cols-[3fr_1fr_1fr] sm:grid mt-36 px-10 sm:px-0'>
         <div className='flex flex-col gap-5'>
             <img src={assets.logo} width={120} alt="" />
@@ -31,7 +31,7 @@ const Footer = () => {
         <hr className='h-[1px] bg-gray-200'/>
         <p className='text-center font-medium text-sm py-8 '>Copyright 2024@ greatstack.dev - All Right Reserved.</p>
         </div>
-    </>
+    </footer>
   )
 }
 
