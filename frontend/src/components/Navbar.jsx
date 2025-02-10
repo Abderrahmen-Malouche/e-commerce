@@ -9,7 +9,7 @@ import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch ,} = useContext(ShopContext);
+  const { setShowSearch ,getCartTotal} = useContext(ShopContext);
   const [changePath, setChangePath] = useState(false);
   const location = useLocation();
   const path = location.pathname;
@@ -96,7 +96,7 @@ const Navbar = () => {
             className="cursor-pointer"
           />
           <p className="text-xs bg-black text-white absolute -bottom-1 -right-1 rounded-full px-[2px]">
-            10
+          {getCartTotal()}
           </p>
         </div>
         </NavLink>

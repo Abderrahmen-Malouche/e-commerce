@@ -7,7 +7,7 @@ import { assets } from "../assets/assets";
 import SubTitle from "../components/SubTitle"
 import RelatedProducts from "../components/RelatedProducts";
 const Product = () => {
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency,addToCart } = useContext(ShopContext);
   const { productId } = useParams();
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
@@ -84,7 +84,7 @@ const Product = () => {
               </button>
             ))}
           </div>
-          <button className="cursor-pointer text-white bg-black text-sm px-8 py-3 mt-6">
+          <button className="cursor-pointer text-white bg-black text-sm px-8 py-3 mt-6" onClick={()=>addToCart(productData._id,selectedSize)}>
             ADD TO CART{" "}
           </button>
           <hr className="bg-gray-200 h-[1px] w-full mt-8" />

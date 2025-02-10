@@ -11,11 +11,13 @@ import Product from './pages/Product'
 import PlaceOrder from './pages/PlaceOrder'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
  
   return (
     
     <div className='container mx-auto'>
+      <ToastContainer position='top-middle'/>
         <Navbar/>
         <SearchBar/>
         <Routes>
