@@ -7,7 +7,7 @@
         
       return (
         <>
-          <div className="flex justify-left items-center gap-6 text-2xl mb-10">
+          <div className="flex justify-left items-center gap-6 text-2xl mb-6">
             <SubTitle text1="CART" text2="TOTAL"/>
           </div>
           <div className="flex flex-col gap-4 mt-2 text-sm">
@@ -24,10 +24,7 @@
                 <p >{currency} {getTotalCost()==0?0:getTotalCost()+deliveryCost}</p>
               </div>
           </div>
-          <div className="flex justify-end gap-6">
-
-          <button className="text-white py-3 px-6 bg-black cursor-pointer mt-10">PROCEED TO CHECKOUT</button>
-          </div>
+          
       
         </>
       )

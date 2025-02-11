@@ -4,12 +4,13 @@ import { ShopContext } from "../Context/ShopContext";
 import SubTitle from "../components/SubTitle";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
+import { NavLink } from "react-router";
 const Cart = () => {
-  const { products, currency, cartItems , updateQuantity ,deliveryCost} =
+  const { products, currency, cartItems, updateQuantity, deliveryCost } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
   const [subtotal, setSubTotal] = useState(0);
-  
+
   useEffect(() => {
     let tempCartData = [];
     for (let productId in cartItems) {
@@ -53,7 +54,9 @@ const Cart = () => {
                       {currency}
                       {productData.price}
                     </p>
-                    <div className="py-2 px-4 text-md text-gray-700 bg-gray-100 border-[1px] border-gray-300">{item.size}</div>
+                    <div className="py-2 px-4 text-md text-gray-700 bg-gray-100 border-[1px] border-gray-300">
+                      {item.size}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -63,17 +66,17 @@ const Cart = () => {
                   value={item.quantity}
                   className="py-[1px] px-2 text-lg outline-gray-200 border-[1px] border-gray-300 w-16"
                   min={1}
-                  onChange={(e)=>updateQuantity(item.id, item.size, parseInt(e.target.value))}
-                />  
-                
+                  onChange={(e) =>
+                    updateQuantity(item.id, item.size, parseInt(e.target.value))
+                  }
+                />
 
                 <img
                   src={assets.bin_icon}
                   alt=""
                   className="w-5 cursor-pointer"
                   onClick={() => updateQuantity(item.id, item.size, 0)}
-                  />
-                  
+                />
               </div>
             </div>
           );
@@ -81,8 +84,14 @@ const Cart = () => {
       </div>
       <div className="flex justify-end my-20">
         <div className="w-full md:w-[460px]">
-      <CartTotal/>
-
+          <CartTotal />
+          <div className="flex justify-end gap-6 ">
+            <NavLink to="/place_order">
+              <button className="text-white py-3 px-6 bg-black cursor-pointer mt-10">
+                PROCEED TO CHECKOUT
+              </button>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

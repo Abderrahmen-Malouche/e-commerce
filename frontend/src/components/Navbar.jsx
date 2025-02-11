@@ -69,11 +69,13 @@ const Navbar = () => {
             />
           
         <div className="group relative">
+          
           <img
             src={assets.profile_icon}
             width={20}
             alt=""
             className="cursor-pointer"
+            onClick={() => navigate("/login")}
           />
           <div className="absolute dropdown-menu right-0 bg-gray-100 p-4 hidden group-hover:block w-40">
             <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal">
