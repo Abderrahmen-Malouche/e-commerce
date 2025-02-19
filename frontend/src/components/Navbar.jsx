@@ -9,7 +9,7 @@ import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch ,getCartTotal} = useContext(ShopContext);
+  const { setShowSearch ,getCartTotal,token,setToken,setCartItems} = useContext(ShopContext);
   const [changePath, setChangePath] = useState(false);
   const location = useLocation();
   const path = location.pathname;
@@ -26,6 +26,12 @@ const Navbar = () => {
     if(changePath){
       navigate("/collections")
     }
+  }
+  const logout = ()=>{
+    localStorage.removeItem('token');
+    setToken('');
+    setCartItems({})
+    navigate('/login')
   }
   return (
     <header className="flex items-center justify-between py-6">
@@ -77,17 +83,19 @@ const Navbar = () => {
             className="cursor-pointer"
             onClick={() => navigate("/login")}
           />
+          {token && 
           <div className="absolute dropdown-menu right-0 bg-gray-100 p-4 hidden group-hover:block w-40">
-            <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal">
-              My Profile
-            </p>
-            <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal">
-              Orders
-            </p>
-            <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal">
-              Logout
-            </p>
-          </div>
+          <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal">
+            My Profile
+          </p>
+          <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal" onClick={()=>navigate('/orders')}>
+            Orders
+          </p>
+          <p className="cursor-pointer hover:text-black hover:underline text-lg font-normal" onClick={()=>logout()}>
+            Logout
+          </p>
+        </div>}
+          
         </div>
         <NavLink to="/cart">
         <div className="relative ">

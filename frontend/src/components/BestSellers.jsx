@@ -7,10 +7,11 @@ import {useState,useEffect} from 'react'
 const BestSellers = () => {
     const {products}=useContext(ShopContext)
     const [bestSellers,setBestSellers]=useState([])
+
     useEffect(()=>{
-        setBestSellers(products.filter((product)=>product.bestseller===true).slice(0,5))
-    },[])
-    console.log(products)
+        setBestSellers(products.filter((product)=>product.bestSeller===true).slice(0,5))
+    },[products])
+    
   return (
     <div>
       <div className='text-3xl  my-10 py-2 flex justify-center'>

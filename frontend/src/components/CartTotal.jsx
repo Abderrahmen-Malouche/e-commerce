@@ -3,7 +3,7 @@
     import { ShopContext } from '../Context/ShopContext'
     import SubTitle from './SubTitle'
     const CartTotal = () => {
-        const {currency, cartItems, products,getTotalCost,deliveryCost} = useContext(ShopContext);
+        const {currency,getTotalCost,deliveryCost} = useContext(ShopContext);
         
       return (
         <>
@@ -21,7 +21,7 @@
               </div>
               <div className="flex justify-between items-center gap-4  w-full font-semibold">
                 <p >Total</p>
-                <p >{currency} {getTotalCost()==0?0:getTotalCost()+deliveryCost}</p>
+                <p >{currency} {getTotalCost()==0 ? 0:getTotalCost()+deliveryCost}</p>
               </div>
           </div>
           

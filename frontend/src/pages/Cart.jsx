@@ -11,19 +11,21 @@ const Cart = () => {
   const [cartData, setCartData] = useState([]);
   const [subtotal, setSubTotal] = useState(0);
 
-  useEffect(() => {
-    let tempCartData = [];
-    for (let productId in cartItems) {
-      for (let item in cartItems[productId]) {
-        tempCartData.push({
-          id: productId,
-          size: item,
-          quantity: cartItems[productId][item],
-        });
+  useEffect(() => { 
+    if(products.length >0){
+      let tempCartData = [];
+      for (let productId in cartItems) {
+        for (let item in cartItems[productId]) {
+          tempCartData.push({
+            id: productId,
+            size: item,
+            quantity: cartItems[productId][item],
+          });
+        }
       }
+      setCartData(tempCartData);
     }
-    setCartData(tempCartData);
-  }, [cartItems]);
+  }, [cartItems,products]);
   return (
     <div className="border-t-[1px] border-gray-200 mt-6 p-10">
       <div className="flex justify-left items-center gap-6 text-2xl mb-10">
@@ -34,8 +36,10 @@ const Cart = () => {
           const productData = products.find(
             (product) => item.id === product._id
           );
-          return (
-            <div
+          if(item.quantity>0){
+
+            return (
+              <div
               key={index}
               className=" gap-12 py-4 border-y-[1px] border-gray-200 grid grid-cols-[4fr_0.5fr_0.5fr] items-center md:grid-cols-[4fr_2fr_0.5frE]"
             >
@@ -44,7 +48,7 @@ const Cart = () => {
                   src={productData.image[0]}
                   alt=""
                   className=" w-24 object-cover"
-                />
+                  />
                 <div className="flex flex-col gap-2">
                   <p className="text-lg text-gray-800 font-semibold">
                     {productData.name}
@@ -69,20 +73,21 @@ const Cart = () => {
                   onChange={(e) =>
                     updateQuantity(item.id, item.size, parseInt(e.target.value))
                   }
-                />
+                  />
 
                 <img
                   src={assets.bin_icon}
                   alt=""
                   className="w-5 cursor-pointer"
                   onClick={() => updateQuantity(item.id, item.size, 0)}
-                />
+                  />
               </div>
             </div>
           );
+        }
         })}
-      </div>
-      <div className="flex justify-end my-20">
+        </div>
+        <div className="flex justify-end my-20">
         <div className="w-full md:w-[460px]">
           <CartTotal />
           <div className="flex justify-end gap-6 ">

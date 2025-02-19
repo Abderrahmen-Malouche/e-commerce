@@ -9,7 +9,7 @@ import SideBar from "./components/SideBar";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { Bounce } from "react-toastify";
-
+export const currency = "$";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");

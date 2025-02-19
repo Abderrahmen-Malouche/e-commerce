@@ -3,6 +3,7 @@ import { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../App";
+import {toast} from "react-toastify"
 const Add = ({token}) => {
   const [image1, setImage1] = useState(null);
   const [image2, setImage2] = useState(null);
@@ -34,7 +35,7 @@ const Add = ({token}) => {
       image4 && formData.append("image4",image4);
       
       const response = await axios.post(backendUrl+"/api/product/add",formData,{headers:{token}});
-
+      toast.success("Product added successfully")
       console.log(response.data)
     }catch(error){
       console.log(error); 
@@ -43,7 +44,7 @@ const Add = ({token}) => {
   return (
     <div className="flex flex-col gap-4 w-1/2 ">
       <form onSubmit={submitHandler} className="flex flex-col gap-4">
-        <h1 className="text-gray-500">Upload Image</h1>
+        <h1 className="text-gray-600">Upload Image</h1>
         <div className="flex  gap-4">
           <label htmlFor="image1">
             <img src={image1?URL.createObjectURL(image1):assets.upload_area} alt="" width={100} />
@@ -63,13 +64,14 @@ const Add = ({token}) => {
           </label>
         </div>
         <h1 className="text-gray-500">Product Name</h1>
-        <input type="text" placeholder="Type Here" className="px-4 py-2 border-[1px] rounded-lg border-gray-300" value={productName} onChange={(e)=>setProductName(e.target.value)}/>
+        <input type="text" placeholder="Type Here" className="px-4 py-2 border-[1px] rounded-lg border-gray-300" value={productName} onChange={(e)=>setProductName(e.target.value)} required/>
         <h1 className="text-gray-500">Product Description</h1>
-        <textarea placeholder="Write content here " value={productDescription} onChange={(e)=>setProductDescription(e.target.value)} className="px-4 py-2 border-[1px] rounded-lg border-gray-300" />
-        <div className="flex items-start md:items-center flex-col md:flex-row md:justify-between gap-4">
+        <textarea required placeholder="Write content here " value={productDescription} onChange={(e)=>setProductDescription(e.target.value)} className="px-4 py-2 border-[1px] rounded-lg border-gray-300" />
+        <div className="flex items-start lg:items-center flex-col lg:flex-row  gap-4 ">
           <div className="flex flex-col gap-2">
-            <h2 className="text-gray-500">Product category</h2>
-            <select name="category" id="category" onChange={(e)=>setProductCategory(e.target.value)} className="px-4 py-2 border-[1px] rounded-lg border-gray-300">
+            <h2 className="text-gray-500 text-sm sm:text-base">Product category</h2>
+            <select required name="category" id="category" onChange={(e)=>setProductCategory(e.target.value)} className="px-4 py-2 border-[1px] rounded-lg border-gray-300">
+            <option value="" disabled selected>Select</option>
               <option value="Men">Men</option>
               <option value="Women">Women</option>
               <option value="Kids">Kids</option>
@@ -77,7 +79,8 @@ const Add = ({token}) => {
           </div>
           <div className="flex flex-col gap-2">
             <h2 className="text-gray-500">Sub category</h2>
-            <select name="subCategory" id="subCategory" onChange={(e)=>setProductSubCategory(e.target.value)} className="px-4 py-2 border-[1px] rounded-lg border-gray-300">
+            <select  required name="subCategory" id="subCategory" onChange={(e)=>setProductSubCategory(e.target.value)} className="px-4 py-2 border-[1px] rounded-lg border-gray-300">
+              <option value="" disabled selected>Select</option>
               <option value="Topwear">Topwear</option>
               <option value="Bottomwear">Bottomwear</option>
               <option value="Winterwear">Winterwear</option>
@@ -85,7 +88,7 @@ const Add = ({token}) => {
           </div>
           <div className="flex flex-col gap-2">
             <h2 className="text-gray-500">Product Price</h2>
-            <input type="number" className="px-4 py-2 border-[1px] rounded-lg border-gray-300 w-1/2" value={productPrice} onChange={(e)=>setProductPrice(e.target.value)}/>
+            <input type="number" required className="px-2 py-2 border-[1px] rounded-lg border-gray-300 w-1/2" value={productPrice} onChange={(e)=>setProductPrice(e.target.value)}/>
           </div>
         </div>
         <div className="flex flex-col gap-2">
