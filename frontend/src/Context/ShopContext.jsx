@@ -97,7 +97,6 @@ const ShopContextProvider = ({ children }) => {
       const response=await axios.get(backendUrl+'/api/cart/get',{headers:{token}})
       if(response.data.success){
         setCartItems(response.data.cartData)
-        
       }
       else{
         console.log(response.data.message)
