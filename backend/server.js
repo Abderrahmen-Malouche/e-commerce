@@ -14,7 +14,7 @@ connectCloudinary();
 app.use(express.json());
 app.use(cors(
     {
-        origin:"https://forever-frontend-eight-wheat-vercel.app",
+        origin:"https://forever-frontend-eight-wheat.vercel.app/",
         methods:"GET,POST,PUT,DELETE",
         credentials:true
     }
