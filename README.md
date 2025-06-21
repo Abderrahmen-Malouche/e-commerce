@@ -33,3 +33,6 @@
 | **JWT + Bcrypt**  | Authentication & Security |
 
 ---
+
+## ✨ Live Demo : 
+👉 https://forever-frontend-eight-wheat.vercel.app/
