@@ -17,8 +17,8 @@ const Contact = () => {
                 <p className='text-gray-500 font-medium'>Budapest,Hungary</p>
               </div>
               <div>
-                <p className='text-gray-500 font-medium'>Tel: (36)203521408</p>
-                <p className='text-gray-500 font-medium'>Email: Louaybs@gmail.com</p>
+                <p className='text-gray-500 font-medium'>Tel:(36)705703460 (36)203521408</p>
+                <p className='text-gray-500 font-medium'>Email:abderrahmenmalouchework@gmail.com /Louaybs@gmail.com</p>
               </div>
               <p className='text-gray-600 font-semibold text-xl'>Careers at Forever</p>
               <p className='text-gray-500 font-medium'>Learn more about our terms and job openings.</p>
