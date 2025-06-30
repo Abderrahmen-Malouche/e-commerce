@@ -21,8 +21,8 @@ const Footer = () => {
         <div className='flex flex-col gap-8'>
             <h1 className='font-semibold text-xl'>GET IN TOUCH</h1>
             <ul className='flex flex-col gap-2 text-gray-600 text-sm cursor-pointer'>
-                <li>+362035214080</li>
-                <li>louaybs@gmail.com</li>
+                <li>+36705703460/+362035214080</li>
+                <li>abderrahmenmalouchework@gmail.com/louaybs@gmail.com</li>
                 <li>Instagram</li>
             </ul>
         </div>
@@ -30,7 +30,7 @@ const Footer = () => {
         <div>
 
         <hr className='h-[1px] bg-gray-200'/>
-        <p className='text-center font-medium text-sm py-8 '>Copyright 2024@ louay- All Right Reserved.</p>
+        <p className='text-center font-medium text-sm py-8 '>Copyright 2024@ Abderrahmen/Louay- All Right Reserved.</p>
         </div>
     </footer>
   )
