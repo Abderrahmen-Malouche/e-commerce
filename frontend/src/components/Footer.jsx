@@ -21,8 +21,8 @@ const Footer = () => {
         <div className='flex flex-col gap-8'>
             <h1 className='font-semibold text-xl'>GET IN TOUCH</h1>
             <ul className='flex flex-col gap-2 text-gray-600 text-sm cursor-pointer'>
-                <li>+36705703460</li>
-                <li>abderrahmenmalouchework@gmail.com</li>
+                <li>+362035214080</li>
+                <li>louaybs@gmail.com</li>
                 <li>Instagram</li>
             </ul>
         </div>
